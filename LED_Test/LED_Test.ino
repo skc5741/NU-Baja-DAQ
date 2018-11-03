@@ -1,4 +1,5 @@
 int LED = 13;
+int timeDelay = 500;
 
 void setup() {
   // put your setup code here, to run once:
@@ -9,9 +10,9 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(LED, HIGH);
-  delay(5000);
+  delay(timeDelay);
   digitalWrite(LED, LOW);
-  delay(5000);
+  delay(timeDelay);
   
 
 }
