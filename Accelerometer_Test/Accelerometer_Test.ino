@@ -1,6 +1,12 @@
-int rawX = 0;
-int rawY = 0;
-int rawZ = 0;
+int rawX;
+int rawY;
+int rawZ;
+double voltX;
+double voltY;
+double voltZ;
+double accelX;
+double accelY;
+double accelZ;
 
 void setup() {
   // put your setup code here, to run once:
@@ -20,9 +26,27 @@ void loop() {
   rawY = analogRead(A1);
   rawZ = analogRead(A2);
 
-  Serial.print("X:  ");     Serial.print(rawX);
-  Serial.print("    Y:  ");     Serial.print(rawY);
-  Serial.print("    Z:  ");   Serial.println(rawZ);
+  voltX = ((double)rawX)/1023*3.3;
+  voltY = ((double)rawY)/1023*3.3;
+  voltZ = ((double)rawZ)/1023*3.3;
+
+  accelX = (voltX - 2.19)/(3.57);
+  accelY = (voltY - 2.2)/(3.57);
+  accelZ = (voltZ - 2.2)*(3.57);
+
+  Serial.print("rawX:  ");       Serial.print(rawX);
+  Serial.print("    rawY:  ");   Serial.print(rawY);
+  Serial.print("    rawZ:  ");   Serial.print(rawZ);
+
+  Serial.print("        voltX:  ");   Serial.print(voltX);
+  Serial.print("    voltY:  ");       Serial.print(voltY);
+  Serial.print("    voltZ:  ");       Serial.print(voltZ);
+
+  Serial.print("        accelX:  ");   Serial.print(accelX);
+  Serial.print("    accelY:  ");       Serial.print(accelY);
+  Serial.print("    accelZ:  ");       Serial.print(accelZ);
+
+  Serial.println();
 
   digitalWrite(13, LOW);
 
