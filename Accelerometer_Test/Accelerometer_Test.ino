@@ -14,7 +14,7 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(A0, INPUT);
   pinMode(A1, INPUT);
-  pinMode(A2, INPUT);
+  pinMode(A2, INPUT);  
 }
 
 void loop() {
@@ -30,9 +30,9 @@ void loop() {
   voltY = ((double)rawY)/1023*3.3;
   voltZ = ((double)rawZ)/1023*3.3;
 
-  accelX = (voltX - 2.19)/(3.57);
-  accelY = (voltY - 2.2)/(3.57);
-  accelZ = (voltZ - 2.2)*(3.57);
+  accelX = (voltX - 2.19)*(4.41);
+  accelY = (voltY - 2.2)*(4.41);
+  accelZ = (voltZ - 2.25)*(4.41);
 
   Serial.print("rawX:  ");       Serial.print(rawX);
   Serial.print("    rawY:  ");   Serial.print(rawY);
